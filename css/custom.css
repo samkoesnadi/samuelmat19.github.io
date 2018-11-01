@@ -5,7 +5,30 @@ html {
   min-height: 100%;
 }
 body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
+    margin-top: 100px;
+    margin-bottom: 60px; /* Margin bottom by footer height */
+    background: white;
+}
+#copy_input {
+    height: 2em !important;
+}
+input[type=text] {
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+textarea {
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+input[type=text]:focus {
+    border: 3px solid #333;
+    background-color: #444;
+    color: white;
 }
 .footer {
   position: absolute;
