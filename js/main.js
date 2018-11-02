@@ -7,7 +7,7 @@ var onclickcopy_input = false; // Toggle click_copy to be a button or not
 var copy_text_global = "";
 
 function checkKeyup(id_str, func, range='str') { // 13 is to detect Enter! // the func has one argument of the typed value
-    $(id_str).on('keyup', function (e) {
+    $(id_str).on('keyup input', function (e) {
         if (range=='num') {
             if (e.keyCode>=48&&e.keyCode<=57) {
                 func($(this).val());
