@@ -8,13 +8,15 @@ var copy_text_global = "";
 
 function checkKeyup(id_str, func, range='str') { // 13 is to detect Enter! // the func has one argument of the typed value
     $(id_str).on('keyup input', function (e) {
-        if (range=='num') {
-            if (e.keyCode>=48&&e.keyCode<=57) {
-                func($(this).val());
-            }
-        } else {
-            func($(this).val());
-        }
+        // alert(e.keyCode || e.which);
+        // if (range=='num') {
+        //     if (e.keyCode>=48&&e.keyCode<=57) {
+        //         func($(this).val());
+        //     }
+        // } else {
+        //     func($(this).val());
+        // }
+        func($(this).val());
     });
 } // To check everytime the key is up on specific element
 
