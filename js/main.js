@@ -1,4 +1,4 @@
-// watchify main.js -o bundle.js -v
+// cd js; watchify main.js -o bundle.js -v
 
 "use strict";
 var $ = require("jquery");
@@ -20,6 +20,7 @@ function checkKeyup(id_str, func, range='str') { // 13 is to detect Enter! // th
 
 function connectMouseDown (target, callback) {
     if (onclickcopy_input==false) {
+        $(target).val(" Click here");
         $(target).css("cursor", "pointer");
         $(target).on('mousedown', callback);
         onclickcopy_input = true;
