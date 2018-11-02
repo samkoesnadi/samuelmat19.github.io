@@ -53,19 +53,27 @@ var add = function(msg_str, callback) { // Count here is the temp placeholder to
     });
 }
 
+var getOptions = {
+    source: 'server'
+};
+
 var get = function(copy_id, callback) {
     var docRef = db.collection(collection).doc(copy_id);
 
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            callback(doc.data()["msg"]);
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
+    docRef.get(getOptions).then(function(doc) {
+        callback(doc.data()["msg"]);
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
+}
+
+var del = function(copy_id) {
+    db.collection(collection).doc(copy_id).delete().then(function() {
+        console.log("Document successfully deleted!");
+    }).catch(function(error) {
+        console.error("Error removing document: ", error);
+    });
+
 }
 
 module.exports = function() {
