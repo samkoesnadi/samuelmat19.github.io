@@ -45,21 +45,6 @@ var getOptions = {
     source: 'server'
 };
 
-var get = function(copy_id, callback) {
-    var docRef = db.collection(collection).doc(copy_id);
-
-    docRef.get(getOptions).then(function(doc) {
-        if (doc.exists) {
-            callback(doc.data()["msg"]);
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-}
-
 var del = function(copy_id) {
     db.collection(collection).doc(copy_id).delete().then(function() {
         console.log("Document successfully deleted!");
@@ -67,6 +52,23 @@ var del = function(copy_id) {
         console.error("Error removing document: ", error);
     });
 
+}
+
+var get = function(copy_id, callback) {
+    var docRef = db.collection(collection).doc(copy_id);
+
+    docRef.get(getOptions).then(function(doc) {
+        if (doc.exists) {
+            callback(doc.data()["msg"]);
+            del(copy_id);
+        } else {
+            // doc.data() will be undefined in this case
+            callback("No such document!");
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    });
 }
 
 module.exports = function() {
