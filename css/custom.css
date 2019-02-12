@@ -1,5 +1,5 @@
 /* Sticky footer styles
--------------------------------------------------- */
+/* -------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
@@ -10,7 +10,7 @@ body {
     background: white;
 }
 #copy_input {
-    height: 2em !important;
+    height: 1.5em !important;
 }
 input[type=text] {
     box-sizing: border-box;

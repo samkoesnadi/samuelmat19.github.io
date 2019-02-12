@@ -1,8 +1,10 @@
 // cd js; watchify main.js -o bundle.js -v
 
 "use strict";
-var $ = require("jquery");
+global.$ = require("jquery");
+global.jQuery = $;
 var db = require("./db.js")();
+// require("../include/jGravity.js");
 var onclickcopy_input = false; // Toggle click_copy to be a button or not
 var copy_text_global = "";
 
@@ -32,7 +34,6 @@ function connectMouseDown (target, callback) {
 // Here comes the real deal of the program
 const copyID_length = 10;
 $(document).ready(function() {
-    // $("#copy_input").removeAttr("readonly");
     checkKeyup("#copy_input", function(val) {
         db.get(val, function(msg_str) {
             $("#copy_textarea").val(msg_str);

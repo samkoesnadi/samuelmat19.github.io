@@ -86,11 +86,14 @@ module.exports = function() {
 }
 
 },{"./config.js":1,"firebase/app":11,"firebase/firestore":12}],3:[function(require,module,exports){
+(function (global){
 // cd js; watchify main.js -o bundle.js -v
 
 "use strict";
-var $ = require("jquery");
+global.$ = require("jquery");
+global.jQuery = $;
 var db = require("./db.js")();
+// require("../include/jGravity.js");
 var onclickcopy_input = false; // Toggle click_copy to be a button or not
 var copy_text_global = "";
 
@@ -120,7 +123,6 @@ function connectMouseDown (target, callback) {
 // Here comes the real deal of the program
 const copyID_length = 10;
 $(document).ready(function() {
-    // $("#copy_input").removeAttr("readonly");
     checkKeyup("#copy_input", function(val) {
         db.get(val, function(msg_str) {
             $("#copy_textarea").val(msg_str);
@@ -141,6 +143,7 @@ $(document).ready(function() {
     });
 });
 
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./db.js":2,"jquery":13}],4:[function(require,module,exports){
 'use strict';
 

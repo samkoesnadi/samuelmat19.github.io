@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module '/Applications/MAMP/htdocs/github_page/main.js' from '/Applications/MAMP/htdocs/github_page'");
