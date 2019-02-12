@@ -7,7 +7,7 @@ Feature now:
 <hr /> <br />
 <h5>How to compile?</h5>
 
-Javascript files are located in js folder and comprises of config.js, db.js, main.js. Bundle.js is a "browserify" compiled js file that will be imported to index.html
+Javascript files are located in /js folder and comprises of config.js, db.js, main.js. Bundle.js is a "browserify" compiled js file that will be imported to index.html
 To compile main.js with broserify, use following code:
 ```javascript
 browserify js/main.js -o js/bundle.js
