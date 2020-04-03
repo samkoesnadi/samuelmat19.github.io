@@ -7,6 +7,12 @@ Feature now:
 <hr /> <br />
 <h5>How to compile?</h5>
 
+Dependency installation:
+```
+npm install --save jquery
+npm install --save firebase
+```
+
 Javascript files are located in /js folder and comprises of config.js, db.js, main.js. Bundle.js is a "browserify" compiled js file that will be imported to index.html
 To compile main.js with broserify, use following code:
 ```javascript

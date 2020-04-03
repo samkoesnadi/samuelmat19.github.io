@@ -18,7 +18,9 @@ function checkKeyup(id_str, func, range='str') { // 13 is to detect Enter! // th
         // } else {
         //     func($(this).val());
         // }
-        func($(this).val());
+        if (e.keyCode != 13) {
+            func($(this).val());
+        }
     });
 } // To check everytime the key is up on specific element
 
